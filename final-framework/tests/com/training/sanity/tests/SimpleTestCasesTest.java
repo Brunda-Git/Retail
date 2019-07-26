@@ -46,43 +46,43 @@ public class SimpleTestCasesTest {
 	}
 
 	//Test case 1 - delete INDIAN from categories
-	@Test
-	public void SimpleTestCasesTest() {
+	@Test(priority=0)
+	public void SimpleTestCasesTest1() {
 		homePagePOM.sendUserName("admin");
 		homePagePOM.sendPassword("admin@123");
 		homePagePOM.clickLoginBtn(); 
-		homePagePOM.clickcatLogBtn();
-		homePagePOM.clickcategoriesBtn();
-		homePagePOM.clickindianBtn();
-		homePagePOM.clickdeleteBtn();
+		homePagePOM.clickCatlogBtn();
+		homePagePOM.clickCategoriesBtn();
+		homePagePOM.clickIndianBtn();
+		homePagePOM.clickDeleteBtn();
 		screenShot.captureScreenShot("First");
 	}
 
 	//Test case - 2: delete Ear rings from categories
-	@Test
-	public void SimpleTestCases1Test() {
+	@Test(priority=1)
+	public void SimpleTestCasesTest2() {
 		homePagePOM.sendUserName("admin");
 		homePagePOM.sendPassword("admin@123");
 		homePagePOM.clickLoginBtn(); 
-		homePagePOM.clickcatLogBtn();
-		homePagePOM.clickcategoriesBtn();
-		homePagePOM.clickearringsBtn();
-		homePagePOM.clickdeleteBtn();
+		homePagePOM.clickCatlogBtn(); 
+		homePagePOM.clickCategoriesBtn();
+		homePagePOM.clickEarringsBtn();
+		homePagePOM.clickDeleteBtn();
 		screenShot.captureScreenShot("Second");
 	}
 
 	//test case - 3: Filter product name and price in Products 
-	@Test
-	public void SimpleTestCases2Test() {
+	@Test(priority=2)
+	public void SimpleTestCasesTest3() {
 		homePagePOM.sendUserName("admin");
 		homePagePOM.sendPassword("admin@123");
 		homePagePOM.clickLoginBtn(); 
-		homePagePOM.clickcatLogBtn();
-		homePagePOM.clickproductsBtn();
+		homePagePOM.clickCatlogBtn();
+		homePagePOM.clickProductsBtn();
 		homePagePOM.sendProductName("Integer vitae iaculis massa");
-		homePagePOM.clickfilterBtn();
+		homePagePOM.clickFilterBtn();
 		homePagePOM.sendProductPrice("515");
-		homePagePOM.clickfilterBtn();
+		homePagePOM.clickFilterBtn();
 		screenShot.captureScreenShot("Third");
 	}
 }
