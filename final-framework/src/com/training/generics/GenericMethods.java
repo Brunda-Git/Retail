@@ -2,9 +2,12 @@ package com.training.generics;
 
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * 
@@ -14,12 +17,11 @@ import org.openqa.selenium.WebElement;
  * @since 17-Dec-2018 
  */
 public class GenericMethods {
-	WebDriver driver ; 
+	public static WebDriver driver ; 
 	
 	public GenericMethods(WebDriver driver){
-		this.driver = driver;
+		GenericMethods.driver = driver;
 	}
-	
 	
 	/**
 	 * 
@@ -83,6 +85,44 @@ public class GenericMethods {
 		return getElementsAsList(locator, type).size() ==1;
 	}
 	
+	public void scrollToView(WebElement element) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		
+	}
 	
-}
+	public void jsClick(WebElement element) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+		
+	}
+	
+	public static void checkAlert_Accept() {
+		try{
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		} catch(Exception e){
+		  e.printStackTrace();
+		}
+	   }
+	
+	public static WebElement mouseOver(WebElement element) {
+		try {
+			Actions act = new Actions(driver);
+			act.moveToElement(element);
+			System.out.println("move to element");
+			return element;
+		} catch(Exception e) {
+			System.out.println("Unable to move to element"+e);
+		}
+		return null;
+	}
+
+	
+	public void highlightElement(WebElement element) {        
+		JavascriptExecutor js = (JavascriptExecutor) driver;        
+		//use executeScript() method and pass the arguments         
+		//Here i pass values based on css style. Yellow background color with solid red color border. 
+		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);}
+	}
+	
+	
 
